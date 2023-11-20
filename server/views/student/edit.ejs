@@ -1,0 +1,86 @@
+<%- include ../partials/header.ejs %>
+
+<title>Edit Student</title>
+<link rel="icon" type="image/x-icon" href="../public/Asset/images/otu-fav.png">
+
+<%- include ../partials/nav.ejs %>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+
+            <h1 class="mt-4 mb-4">Edit Student</h1>
+
+            <!-- Edit Student Form -->
+            <form class="form" method="POST">
+                <!-- Full Name -->
+                <div class="form-group mt-2">
+                    <label for="nameTextField">Full Name</label>
+                    <input type="text" class="form-control"
+                           id="nameTextField"
+                           placeholder="Enter the Student's Full Name"
+                           name="Name"
+                           value="<%= Student.Name %>"
+                           required>
+                </div>
+
+                <!-- Student Number -->
+                <div class="form-group mt-2">
+                    <label for="StudentNumTextField">Student Number</label>
+                    <input type="text" class="form-control"
+                           id="StudentNumTextField"
+                           placeholder="Enter the Student's OTU Number"
+                           name="StudentNum"
+                           value="<%= Student.StudentNum %>"
+                           required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group mt-2">
+                    <label for="PhoneNumTextField">Phone Number</label>
+                    <input type="text" class="form-control"
+                           id="PhoneNumTextField"
+                           placeholder="Enter the Student's Phone"
+                           name="PhoneNum"
+                           value="<%= Student.PhoneNum %>"
+                           required>
+                </div>
+
+                <!-- Current Year -->
+                <div class="form-group mt-2">
+                    <label for="YearTextField">Current Year</label>
+                    <input type="text" class="form-control"
+                           id="YearTextField"
+                           placeholder="Enter the current year the Student is In"
+                           name="Year"
+                           value="<%= Student.Year %>"
+                           required>
+                </div>
+
+                <!-- GPA -->
+                <div class="form-group mb-3">
+                    <label for="GpaTextField">GPA</label>
+                    <input type="text" class="form-control"
+                           id="GpaTextField"
+                           placeholder="Enter the Student's GPA Score"
+                           name="Gpa"
+                           value="<%= Student.Gpa %>"
+                           required>
+                </div>
+
+                <!-- Submit and Cancel Buttons -->
+                <button class="btn btn-primary mt-3" type="submit">
+                    <i class="fas fa-edit"></i> Submit
+                </button>
+
+                <a href="/studentlist" class="btn btn-warning mt-3">
+                    <i class="fas fa-undo"></i> Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ../partials/footer.ejs %>
+
+<%- include ../partials/bottom.ejs %>
