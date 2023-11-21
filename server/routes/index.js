@@ -14,6 +14,12 @@ router.get('/home', function(req, res, next) {
   });
 });
 
+router.get('/about', function(req, res, next) {
+  res.render('about', {
+    title: 'About Us'
+  });
+});
+
 
 
 module.exports = router;
