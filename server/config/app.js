@@ -28,11 +28,11 @@ mongoDB.once('open',()=>{console.log("Mongo DB is connected")});
 //mongoose.connect(DB.URI);
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let StudentsRouter = require('../routes/Info_students');
+let StudentsRouter = require('../routes/Info_recipe');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/studentlist', StudentsRouter);
+app.use('/recipelist', StudentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

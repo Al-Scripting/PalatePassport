@@ -14,6 +14,18 @@ router.get('/home', function(req, res, next) {
   });
 });
 
+router.get('/about', function(req, res, next) {
+  res.render('about', {
+    title: 'About Us'
+  });
+});
+
+router.get('/contact', function(req, res, next) {
+  res.render('contact.ejs', {
+    title: 'Contact Us'
+  });
+});
+
 
 
 module.exports = router;

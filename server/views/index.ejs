@@ -1,17 +1,40 @@
 <% include partials/header.ejs %>
 
 <title>Home</title>
-<link rel="icon" type="image/x-icon" href="/Asset/images/otu-fav.png">
+<link rel="icon" type="image/x-icon" href="/Asset/images/hero.png">
 
 <%-include('partials/nav.ejs') %>
 
 <!-- Splash Content -->
-<div class="container splash-content custom-background" id="splash">
-    <h1 class="display-4">Welcome to the Ontario Tech Student Database System</h1>
-    <p class="lead">This Web app allows you to keep track of Students Information and GPA</p>
-    <a href="/studentlist"><button class="btn btn-primary reserve-btn" id="start-btn">Start Now</button></a>
-</div>
+<!-- Hero Section-->
+<section id="home">
+    <div class="container">
+        <div class="row">
+            <!-- Left column containing text content -->
+            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+                <div data-aos="zoom-out">
+                    <!-- Main heading and subheading -->
+                    <h1>Welcome To <br> <span><img src="/Asset/images/Group_Logo.png" id="hero-logo"></span></h1>
+                    <h2>"Your Ticket to a World of Flavors"</h2>
 
+                    <!-- Call-to-action buttons -->
+                    <div class="d-lg-flex">
+                        <a href="/recipelist" class="btn-projects">Plate-Passports Recipes</a>
+                        <a href="/about" class="btn-get-started">About Us</a>
+                        <a href="/contact" class="btn-contacts">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column containing the hero image -->
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                <!-- Hero image displayed on the right side -->
+                <img src="/Asset/images/hero.png" class="img-fluid animated" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section-->
 
 
 <%-include('partials/footer.ejs') %>

@@ -1,7 +1,7 @@
 <% include ../partials/header.ejs %>
 
-<title>Student-Database</title>
-<link rel="icon" type="image/x-icon" href="/Asset/images/favicon/favicon-16x16.png">
+<title>Recipes</title>
+
 
 <% include ../partials/nav.ejs %>
 
@@ -9,11 +9,11 @@
     <div class="row">
         <div class="col-md-10">
 
-            <h1 class="mb-4">Student Database</h1>
+            <h1 class="mb-4">Community Recipes</h1>
 
-            <!-- Add Student Button -->
-            <a href="/studentlist/add" class="btn btn-primary mb-3" role="button" id="add-btn">
-                <i class="fas fa-plus-circle"></i> Add Student
+            <!-- Add Recipe Button -->
+            <a href="/recipelist/add" class="btn btn-primary mb-3" role="button" id="add-btn">
+                <i class="fas fa-plus-circle"></i> Add Recipe
             </a>
             <br>
 
@@ -22,39 +22,40 @@
                 <!-- Table Header -->
                 <thead class="thead-dark">
                 <tr class="d-flex">
+                    <th class="text-center col-2">Image</th>
                     <th class="text-center col-2">Name</th>
-                    <th class="text-center col-2">StudentNum</th>
-                    <th class="text-center col-4">PhoneNum</th>
-                    <th class="text-center col-2">Year</th>
-                    <th class="text-center col-1">Gpa</th>
+                    <th class="text-center col-4">Recipe</th>
+                    <th class="text-center col-2">Country of Origin</th>
+                    <th class="text-center col-1">Time Taken</th>
                     <th class="text-center col-2">Actions</th>
                 </tr>
                 </thead>
                 <!-- Table Body -->
                 <tbody>
-                <% for(let count=0; count<StudentList.length; count++) { %>
+                <% for(let count=0; count<RecipeList.length; count++) { %>
                     <tr class="d-flex">
                         <!-- Student Data -->
-                        <td class="text-center col-2"><%= StudentList[count].Name %></td>
-                        <td class="text-center col-2"><%= StudentList[count].StudentNum %></td>
-                        <td class="text-center col-4"><%= StudentList[count].PhoneNum %></td>
-                        <td class="text-center col-2"><%= StudentList[count].Year %></td>
-                        <td class="text-center col-1"><%= StudentList[count].Gpa %></td>
+                        <td class="text-center col-1"><%= RecipeList[count].Image %></td>
+                        <td class="text-center col-2"><%= RecipeList[count].Name %></td>
+                        <td class="text-center col-4"><%= RecipeList[count].Discription %></td>
+                        <td class="text-center col-2"><%= RecipeList[count].CountryofOrgin %></td>
+                        <td class="text-center col-2"><%= RecipeList[count].Time %></td>
+
 
                         <!-- Edit and Delete Actions -->
                         <td class="text-center col-2">
-                            <a href="/studentlist/edit/<%= StudentList[count]._id %>" class="btn btn-primary btn-sm">
+                            <a href="/recipelist/edit/<%= RecipeList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit
                             </a>
-                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete('<%= StudentList[count]._id %>')">
+                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete('<%= RecipeList[count]._id %>')">
                                 <i class="fas trash-alt"></i> Delete
                             </a>
                             <!-- JavaScript Confirmation Dialog -->
                             <script>
-                                function confirmDelete(studentId) {
+                                function confirmDelete(RecipeId) {
                                     var result = confirm("Are you sure you want to delete this entry?");
                                     if (result) {
-                                        window.location.href = "/studentlist/delete/" + studentId;
+                                        window.location.href = "/recipelist/delete/" + RecipeId;
                                     }
                                 }
                             </script>
