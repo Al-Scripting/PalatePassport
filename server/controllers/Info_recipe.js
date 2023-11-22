@@ -6,11 +6,12 @@ let Recipe = require('../models/Info_recipe');
 module.exports.DislayRecipelist = async (req,res,next)=>{ //< Mark function as async
     try{
         const RecipeList = await Recipe.find(); //< Use of await keyword
+
         res.render('blogs/list', {
             title: 'Recipe List',
             RecipeList: RecipeList
         });
-    }catch(err){
+    } catch(err){
         console.error(err);
         //Handle error
         res.render('blogs/list', {
@@ -39,11 +40,11 @@ module.exports.AddRecipe = async (req,res,next)=>{
 module.exports.ProcessRecipe = async (req,res,next)=>{
     try{
         let newRecipe = Recipe({
-            "Image": req.body.Image,
+
             "Name":req.body.Name,
             "Discription": req.body.Discription,
-            "Country of Orgin": req.body.CountryofOrgin,
             "Time": req.body.Time
+
         });
         Recipe.create(newRecipe).then(() =>{
             res.redirect('/recipeList')
@@ -82,11 +83,9 @@ module.exports.ProcessEditRecipe= (req,res,next)=>{
         const id = req.params.id;
         let updatedRecipe = Recipe({
             "_id":id,
-            "Image": req.body.Image,
             "Name":req.body.Name,
             "Discription": req.body.Discription,
-            "Country of Orgin": req.body.CountryofOrgin,
-            "Time Taken": req.body.Time
+            "Time": req.body.Time
         });
         Recipe.findByIdAndUpdate(id,updatedRecipe).then(()=>{
             res.redirect('/recipeList')
