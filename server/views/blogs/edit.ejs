@@ -1,6 +1,6 @@
 <%- include ../partials/header.ejs %>
 
-<title>Edit Student</title>
+<title>Edit Recipe</title>
 
 
 <%- include ../partials/nav.ejs %>
@@ -11,62 +11,51 @@
 
             <h1 class="mt-4 mb-4">Edit Student</h1>
 
-            <!-- Edit Student Form -->
+            <!-- Edit Recipe Form -->
             <form class="form" method="POST">
-                <!-- Full Name -->
-                <div class="form-group mt-2">
-                    <label for="nameTextField">Full Name</label>
-                    <input type="text" class="form-control"
-                           id="nameTextField"
-                           placeholder="Enter the Student's Full Name"
+                <!-- Recipe's Name -->
+                <div class="form-group">
+                    <label for="nameTextField">Recipe's Name</label>
+                    <input type="text" class="form-control"    id="nameTextField"
+                           placeholder="Enter the Recipe's Name"
                            name="Name"
-                           value="<%= Student.Name %>"
+                           value="<%= Recipe.Name %>"
                            required>
                 </div>
 
-                <!-- Student Number -->
-                <div class="form-group mt-2">
-                    <label for="StudentNumTextField">Student Number</label>
+                <!-- Recipe -->
+                <div class="form-group mt-3">
+                    <label for="descriptionTextArea">Recipe</label>
                     <input type="text" class="form-control"
-                           id="StudentNumTextField"
-                           placeholder="Enter the Student's OTU Number"
-                           name="StudentNum"
-                           value="<%= Student.StudentNum %>"
+                           id="descriptionTextArea"
+                           placeholder="Enter the Recipe's Name"
+                           name="Discription"
+                           value="<%= Recipe.Discription%>"
                            required>
                 </div>
 
-                <!-- Phone Number -->
-                <div class="form-group mt-2">
-                    <label for="PhoneNumTextField">Phone Number</label>
+                <!-- Country of Origin -->
+                <div class="form-group mt-3">
+                    <label for="CountryTextField">Origin of Dish</label>
                     <input type="text" class="form-control"
-                           id="PhoneNumTextField"
-                           placeholder="Enter the Student's Phone"
-                           name="PhoneNum"
-                           value="<%= Student.PhoneNum %>"
+                           id="CountryTextField"
+                           placeholder="Enter the Dishes Country of Origin"
+                           name="Country"
+                           value="<%= Recipe.Country%>"
                            required>
                 </div>
 
-                <!-- Current Year -->
-                <div class="form-group mt-2">
-                    <label for="YearTextField">Current Year</label>
+                <!-- Time Taken -->
+                <div class="form-group mt-3">
+                    <label for="TimeTextField">Overall Time to Cook</label>
                     <input type="text" class="form-control"
-                           id="YearTextField"
-                           placeholder="Enter the current year the Student is In"
-                           name="Year"
-                           value="<%= Student.Year %>"
+                           id="TimeTextField"
+                           placeholder="Enter the full time to cook the meal"
+                           name="Time"
+                           value="<%= Recipe.Country%>"
                            required>
                 </div>
 
-                <!-- GPA -->
-                <div class="form-group mb-3">
-                    <label for="GpaTextField">GPA</label>
-                    <input type="text" class="form-control"
-                           id="GpaTextField"
-                           placeholder="Enter the Student's GPA Score"
-                           name="Gpa"
-                           value="<%= Student.Gpa %>"
-                           required>
-                </div>
 
                 <!-- Submit and Cancel Buttons -->
                 <button class="btn btn-primary mt-3" type="submit">

@@ -9,54 +9,47 @@
     <div class="row">
         <div class="offset-md-3 col-md-6">
 
-            <h1 class="mt-4 mb-4">Add Student</h1>
+            <h1 class="mt-4 mb-4">Add Recipe</h1>
 
-            <!-- Student Form -->
+            <!-- Recipe Form -->
             <form class="form" method="POST">
-                <!-- Full Name -->
+                <!-- Recipe's Name -->
                 <div class="form-group">
-                    <label for="nameTextField">Full Name</label>
+                    <label for="nameTextField">Recipe's Name</label>
                     <input type="text" class="form-control"
                            id="nameTextField"
-                           placeholder="Enter the Student's Full Name"
+                           placeholder="Enter the Recipe's Name"
                            name="Name" required>
                 </div>
 
-                <!-- Student Number -->
+                <!-- Recipe -->
                 <div class="form-group mt-3">
-                    <label for="StudentNumTextField">Student Number</label>
+                    <label for="descriptionTextArea">Recipe</label>
                     <input type="text" class="form-control"
-                           id="StudentNumTextField"
-                           placeholder="Enter the Student's OTU Number"
-                           name="StudentNum" required>
+                           id="descriptionTextArea"
+                           placeholder="Enter the Recipe's Name"
+                           name="Discription" required>
                 </div>
 
-                <!-- Phone Number -->
+                <!-- Country of Origin -->
                 <div class="form-group mt-3">
-                    <label for="PhoneNumTextField">Phone Number</label>
+                    <label for="CountryTextField">Origin of Dish</label>
                     <input type="text" class="form-control"
-                           id="PhoneNumTextField"
-                           placeholder="Enter the Student's Phone"
-                           name="PhoneNum" required>
+                           id="CountryTextField"
+                           placeholder="Enter the Dishes Country of Origin"
+                           name="Country" required>
                 </div>
 
-                <!-- Current Year -->
+                <!-- Time Taken -->
                 <div class="form-group mt-3">
-                    <label for="YearTextField">Current Year</label>
+                    <label for="TimeTextField">Overall Time to Cook</label>
                     <input type="text" class="form-control"
-                           id="YearTextField"
-                           placeholder="Enter the current year the Student is In"
-                           name="Year" required>
+                           id="TimeTextField"
+                           placeholder="Enter the full time to cook the meal"
+                           name="Time" required>
                 </div>
 
-                <!-- GPA -->
-                <div class="form-group mt-3">
-                    <label for="GpaTextField">GPA</label>
-                    <input type="text" class="form-control"
-                           id="GpaTextField"
-                           placeholder="Enter the Student's GPA Score"
-                           name="Gpa" required>
-                </div>
+
 
                 <!-- Submit and Cancel Buttons -->
                 <button class="btn btn-primary mt-5" type="submit">

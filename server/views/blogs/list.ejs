@@ -22,11 +22,10 @@
                 <!-- Table Header -->
                 <thead class="thead-dark">
                 <tr class="d-flex">
-                    <th class="text-center col-2">Image</th>
                     <th class="text-center col-2">Name</th>
                     <th class="text-center col-4">Recipe</th>
                     <th class="text-center col-2">Country of Origin</th>
-                    <th class="text-center col-1">Time Taken</th>
+                    <th class="text-center col-2">Time Taken</th>
                     <th class="text-center col-2">Actions</th>
                 </tr>
                 </thead>
@@ -35,10 +34,9 @@
                 <% for(let count=0; count<RecipeList.length; count++) { %>
                     <tr class="d-flex">
                         <!-- Student Data -->
-                        <td class="text-center col-1"><%= RecipeList[count].Image %></td>
                         <td class="text-center col-2"><%= RecipeList[count].Name %></td>
                         <td class="text-center col-4"><%= RecipeList[count].Discription %></td>
-                        <td class="text-center col-2"><%= RecipeList[count].CountryofOrgin %></td>
+                        <td class="text-center col-2"><%= RecipeList[count].Country%></td>
                         <td class="text-center col-2"><%= RecipeList[count].Time %></td>
 
 

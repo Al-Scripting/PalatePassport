@@ -5,6 +5,7 @@ let recipeModel = mongoose.Schema({
 
         Name: String,
         Discription: String,
+        Country: String,
         Time: Number,
 
 

@@ -43,6 +43,7 @@ module.exports.ProcessRecipe = async (req,res,next)=>{
 
             "Name":req.body.Name,
             "Discription": req.body.Discription,
+            "Country": req.body.Country,
             "Time": req.body.Time
 
         });
@@ -85,6 +86,7 @@ module.exports.ProcessEditRecipe= (req,res,next)=>{
             "_id":id,
             "Name":req.body.Name,
             "Discription": req.body.Discription,
+            "Country": req.body.Country,
             "Time": req.body.Time
         });
         Recipe.findByIdAndUpdate(id,updatedRecipe).then(()=>{
