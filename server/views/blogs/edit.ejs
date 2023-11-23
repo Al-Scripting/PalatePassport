@@ -16,7 +16,8 @@
                 <!-- Recipe's Name -->
                 <div class="form-group">
                     <label for="nameTextField">Recipe's Name</label>
-                    <input type="text" class="form-control"    id="nameTextField"
+                    <input type="text" class="form-control"
+                           id="nameTextField"
                            placeholder="Enter the Recipe's Name"
                            name="Name"
                            value="<%= Recipe.Name %>"
@@ -28,7 +29,7 @@
                     <label for="descriptionTextArea">Recipe</label>
                     <input type="text" class="form-control"
                            id="descriptionTextArea"
-                           placeholder="Enter the Recipe's Name"
+                           placeholder="Enter the Recipe"
                            name="Discription"
                            value="<%= Recipe.Discription%>"
                            required>
@@ -62,7 +63,7 @@
                     <i class="fas fa-edit"></i> Submit
                 </button>
 
-                <a href="/studentlist" class="btn btn-warning mt-3">
+                <a href="/recipelist" class="btn btn-warning mt-3">
                     <i class="fas fa-undo"></i> Cancel
                 </a>
             </form>
