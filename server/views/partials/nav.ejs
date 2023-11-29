@@ -29,9 +29,23 @@
                 <a class="nav-link" href="/contact"><i class="fa-regular fa-envelope"></i> Contact Us</a>
             </li>
             <!-- Login Button -->
-            <li class="nav-item">
-                <a class="nav-link btn btn-primary" href="/login"> Login</a>
-            </li>
+            <% if(typeof displayName == 'string' && displayName) { %>
+
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link" >
+                        <i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                </li>
+
+                <li class="nav-text">
+                    <a class="nav-link"><i class="fa-regular fa-face-smile"></i> Welcome, <%= displayName %></a>
+                </li>
+
+            <% } else { %>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">
+                        <i class="fa-solid fa-sign-in-alt"></i> Login</a>
+                </li>
+            <% } %>
         </ul>
     </div>
 </nav>

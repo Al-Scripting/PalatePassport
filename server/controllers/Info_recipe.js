@@ -9,7 +9,8 @@ module.exports.DislayRecipelist = async (req,res,next)=>{ //< Mark function as a
 
         res.render('blogs/list', {
             title: 'Recipe List',
-            RecipeList: RecipeList
+            RecipeList: RecipeList,
+            displayName: req.user ? req.user.displayName:''
         });
     } catch(err){
         console.error(err);
@@ -24,7 +25,8 @@ module.exports.AddRecipe = async (req,res,next)=>{
     try{
         res.render('blogs/add',
             {
-                title: 'Add blogs'
+                title: 'Add blogs',
+                displayName: req.user ? req.user.displayName:''
             })
     }
     catch(err)

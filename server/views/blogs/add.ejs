@@ -1,9 +1,9 @@
-<%- include ../partials/header.ejs %>
+<%-include('../partials/header.ejs') %>
 
 <title>Add Recipe</title>
 
 
-<%- include ../partials/nav.ejs %>
+<%-include('../partials/nav.ejs') %>
 
 <div class="container">
     <div class="row">
@@ -25,11 +25,14 @@
                 <!-- Recipe -->
                 <div class="form-group mt-3">
                     <label for="descriptionTextArea">Recipe</label>
-                    <input type="text" class="form-control"
-                           id="descriptionTextArea"
-                           placeholder="Enter the Recipe"
-                           name="Discription" required>
+                    <textarea class="form-control"
+                              id="descriptionTextArea"
+                              placeholder="Enter the Recipe"
+                              name="Discription"
+                              rows="4" required>
+                    </textarea>
                 </div>
+
 
                 <!-- Country of Origin -->
                 <div class="form-group mt-3">
@@ -65,6 +68,6 @@
     </div>
 </div>
 
-<%- include ../partials/footer.ejs %>
+<%-include('../partials/footer.ejs') %>
 
-<%- include ../partials/bottom.ejs %>
+<%-include('../partials/bottom.ejs') %>

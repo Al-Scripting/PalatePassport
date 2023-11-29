@@ -8,7 +8,6 @@ let recipeModel = mongoose.Schema({
         Country: String,
         Time: String,
 
-
     },
     {
         collection: "recipes"

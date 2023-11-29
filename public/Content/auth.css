@@ -1,0 +1,82 @@
+/* Main container */
+.container-login {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container-register {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Login form heading */
+.container h1 {
+    color: #445D48; /* Dark green color */
+    text-decoration: underline;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px; /* Spacing below the heading */
+    text-align: center;
+}
+
+/* Form styling */
+.form-group label {
+    color: #001524; /* Dark blue color */
+    font-size: 16px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px; /* Spacing below each input */
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-right: 10px;
+}
+
+.btn-success {
+    background-color: #445D48; /* Dark green background */
+    color: white;
+}
+
+.btn-warning {
+    background-color: #D6CC99; /* Gold color background */
+    color: #22181C; /* Dark color for text */
+}
+
+.btn-success:hover, .btn-warning:hover {
+    opacity: 0.9; /* Slightly transparent on hover */
+}
+
+/* Message alert */
+.alert {
+    color: white;
+    background-color: red; /* Red background for error messages */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Spacing below the alert */
+    text-align: center;
+}
+
+/* Link styling */
+a {
+    color: #445D48; /* Dark green color */
+    text-decoration: none;
+}
+
+/* Responsive design considerations */
+@media screen and (max-width: 768px) {
+    .container h1 {
+        font-size: 24px; /* Smaller font size for smaller screens */
+    }
+    .form-control, .btn {
+        font-size: 14px; /* Smaller font size for form elements */
+    }
+}

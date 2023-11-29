@@ -1,70 +1,68 @@
-<% include ../partials/header.ejs %>
+<%-include('../partials/header.ejs') %>
 
-<title>Recipes</title>
+<title>Community Recipe's</title>
 
 
-<% include ../partials/nav.ejs %>
+<%-include('../partials/nav.ejs') %>
 
-<main class="container mt-4">
+
+<main class="container">
     <div class="row">
-        <div class="col-md-10">
-
-            <h1 class="mb-4">Community Recipes</h1>
-
-            <!-- Add Recipe Button -->
-            <a href="/recipelist/add" class="btn btn-primary mb-3" role="button" id="add-btn">
-                <i class="fas fa-plus-circle"></i> Add Recipe
-            </a>
+        <div class="col-md-offset-3 col-md-10 mt-5">
+            <h1>Add Recipe</h1>
+            <% if(typeof displayName=='string' && displayName) { %>
+                <a href="/recipelist/add" class="btn btn-primary" role="button">
+                    <i class="fas fa-plus-circle"></i> Add a Recipe </a>
+                <br>
+            <% } %>
             <br>
-
-            <!-- Student Table -->
-            <table class="table table-bordered table-striped table-hover">
-                <!-- Table Header -->
-                <thead class="thead-dark">
+            <table class= "table table-bordered table-striped table-hover">
                 <tr class="d-flex">
-                    <th class="text-center col-2">Name</th>
-                    <th class="text-center col-4">Recipe</th>
-                    <th class="text-center col-2">Country of Origin</th>
-                    <th class="text-center col-2">Time Taken</th>
-                    <th class="text-center col-2">Actions</th>
+                    <% if(typeof displayName=='string' && displayName) { %>
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-4">Recipe</th>
+                        <th class="text-center col-2">Country of Origin</th>
+                        <th class="text-center col-2">Time Take</th>
+                        <th class="text-center col-2">Actions</th>
+                    <% } else { %>
+                            <th class="text-center col-2">Name</th>
+                            <th class="text-center col-4">Recipe</th>
+                            <th class="text-center col-2">Country of Origin</th>
+                            <th class="text-center col-2">Time Take</th>
+                    <% } %>
+
                 </tr>
-                </thead>
-                <!-- Table Body -->
-                <tbody>
-                <% for(let count=0; count<RecipeList.length; count++) { %>
+                <!-- Repeat the template -->
+                <% for(let count=0; count < RecipeList.length; count++) { %>
                     <tr class="d-flex">
-                        <!-- Student Data -->
-                        <td class="text-center col-2"><%= RecipeList[count].Name %></td>
-                        <td class="text-center col-4"><%= RecipeList[count].Discription %></td>
-                        <td class="text-center col-2"><%= RecipeList[count].Country%></td>
-                        <td class="text-center col-2"><%= RecipeList[count].Time %></td>
+                        <% if(typeof displayName=='string' && displayName) { %>
+                            <td class="text-center col-2"><%= RecipeList[count].Name %></td>
+                            <td class="text-center col-4"><%= RecipeList[count].Discription %></td>
+                            <td class="text-center col-2"><%= RecipeList[count].Country %></td>
+                            <td class="text-center col-2"><%= RecipeList[count].Time %></td>
+                            <td class="text-center col-2 mt-2">
+                                <a href="/recipelist/edit/<%= RecipeList[count]._id %>"
+                                   class="btn btn-primary" id="edit">
+                                    <i class="fas fa-pencil-alt"></i> Edit </a>
 
-
-                        <!-- Edit and Delete Actions -->
-                        <td class="text-center col-2">
-                            <a href="/recipelist/edit/<%= RecipeList[count]._id %>" class="btn btn-primary btn-sm">
-                                <i class="fas fa-pencil-alt"></i> Edit
-                            </a>
-                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete('<%= RecipeList[count]._id %>')">
-                                <i class="fas trash-alt"></i> Delete
-                            </a>
-                            <!-- JavaScript Confirmation Dialog -->
-                            <script>
-                                function confirmDelete(RecipeId) {
-                                    var result = confirm("Are you sure you want to delete this entry?");
-                                    if (result) {
-                                        window.location.href = "/recipelist/delete/" + RecipeId;
-                                    }
-                                }
-                            </script>
-                        </td>
+                                <a href="/recipelist/delete/<%= RecipeList[count]._id %>"
+                                   class="btn btn-danger" id="del">
+                                    <i class="fas fa-trash-alt"></i> Delete </a>
+                            </td>
+                        <% } else { %>
+                            <td class="text-center col-2"><%= RecipeList[count].Name %></td>
+                            <td class="text-center col-4"><%= RecipeList[count].Discription %></td>
+                            <td class="text-center col-2"><%= RecipeList[count].Country %></td>
+                            <td class="text-center col-2"><%= RecipeList[count].Time %></td>
+                        <% } %>
                     </tr>
                 <% } %>
-                </tbody>
             </table>
         </div>
     </div>
 </main>
 
-<% include ../partials/footer.ejs %>
-<% include ../partials/bottom.ejs %>
+<%-include('../partials/footer.ejs') %>
+
+<%-include('../partials/bottom.ejs') %>
+

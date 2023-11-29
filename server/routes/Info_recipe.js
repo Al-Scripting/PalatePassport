@@ -3,6 +3,17 @@ var router = express.Router();
 //const { router } = require('../config/app');
 let Recipe = require('../models/Info_recipe');
 let RecipeController = require('../controllers/Info_recipe')
+
+let mongoose = require('mongoose');
+// helper function
+function requireAuth(req,res,next){
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login')
+    }
+    next();
+}
+
 /* Get route for the Info Recipe list */
 // Read Operation
 router.get('/', RecipeController.DislayRecipelist);
