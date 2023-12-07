@@ -68,7 +68,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
       clientID: '317265795336-ehkoptf42d8tbne17n5k6l6gbkv6gcq4.apps.googleusercontent.com',
       clientSecret: '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',
-      callbackURL: 'http://localhost:3000/auth/google/callback'
+      callbackURL: 'https://plate-passport.onrender.com/auth/google/callback'
     },
     async function(accessToken, refreshToken, profile, done) {
       try {
@@ -95,7 +95,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 passport.use(new GitHubStrategy({
         clientID: '85f290dfe49bc416e4c1',
         clientSecret: 'dfd89cd47a00d1e38cd7b9293856524e8314f5b9',
-        callbackURL: 'http://localhost:3000/auth/github/callback'
+        callbackURL: 'https://plate-passport.onrender.com/auth/github/callback'
     },
     async function(accessToken, refreshToken, profile, done) {
         try {
