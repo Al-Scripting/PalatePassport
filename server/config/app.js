@@ -59,6 +59,68 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/recipelist', RecipesRouter);
 
+
+
+
+/*GOOGLE AUTH*/
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+passport.use(new GoogleStrategy({
+      clientID: '317265795336-ehkoptf42d8tbne17n5k6l6gbkv6gcq4.apps.googleusercontent.com',
+      clientSecret: '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',
+      callbackURL: 'http://localhost:3000/auth/google/callback'
+    },
+    async function(accessToken, refreshToken, profile, done) {
+      try {
+        let user = await User.findOne({ googleId: profile.id });
+        if (!user) {
+          // User not found, create a new user
+          user = new User({
+            googleId: profile.id,
+            username: profile.username || profile.displayName, // Adjust according to available data
+            displayName: profile.displayName,
+            email: profile.emails[0].value, // Assuming the email is available
+          });
+          await user.save();
+        }
+        done(null, user);
+      } catch (err) {
+        done(err);
+      }
+    }
+));
+
+const GitHubStrategy = require('passport-github2').Strategy;
+
+passport.use(new GitHubStrategy({
+        clientID: '85f290dfe49bc416e4c1',
+        clientSecret: 'dfd89cd47a00d1e38cd7b9293856524e8314f5b9',
+        callbackURL: 'http://localhost:3000/auth/github/callback'
+    },
+    async function(accessToken, refreshToken, profile, done) {
+        try {
+            let user = await User.findOne({ githubId: profile.id });
+            if (!user) {
+                // User not found, create a new user
+                user = new User({
+                    githubId: profile.id,
+                    username: profile.username,
+                    displayName: profile.displayName,
+                    email: profile.emails?.[0]?.value || 'No email provided' // Use optional chaining
+                });
+                await user.save();
+            }
+            done(null, user);
+        } catch (err) {
+            done(err);
+        }
+    }
+));
+
+
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

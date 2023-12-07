@@ -70,13 +70,3 @@ a {
     color: #445D48; /* Dark green color */
     text-decoration: none;
 }
-
-/* Responsive design considerations */
-@media screen and (max-width: 768px) {
-    .container h1 {
-        font-size: 24px; /* Smaller font size for smaller screens */
-    }
-    .form-control, .btn {
-        font-size: 14px; /* Smaller font size for form elements */
-    }
-}

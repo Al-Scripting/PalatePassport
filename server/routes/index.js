@@ -5,6 +5,32 @@ let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User;
 
+// Route to start authentication
+router.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+// Google OAuth callback route
+router.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
+
+/*Git Auth*/
+router.get('/auth/github/callback',
+    passport.authenticate('github', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
+
+router.get('/auth/github',
+    passport.authenticate('github', { scope: ['user:email'] }));
+
+
+
+
 router.get('/login',function(req,res,next){
   if(!req.user)
   {
