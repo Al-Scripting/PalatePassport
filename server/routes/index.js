@@ -30,13 +30,13 @@ router.get('/auth/github',
 
 
 /*Steam Auth*/
-app.get('/auth/steam',
+router.get('/auth/steam',
     passport.authenticate('steam', { failureRedirect: '/login' }),
     function(req, res) {
       res.redirect('/');
     });
 
-app.get('/auth/steam/return',
+router.get('/auth/steam/return',
     passport.authenticate('steam', { failureRedirect: '/login' }),
     function(req, res) {
       // Successful authentication, redirect home.
