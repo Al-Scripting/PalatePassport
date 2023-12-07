@@ -117,6 +117,20 @@ passport.use(new GitHubStrategy({
     }
 ));
 
+const SteamStrategy = require('passport-steam').Strategy;
+
+passport.use(new SteamStrategy({
+        returnURL: 'https://plate-passport.onrender.com/auth/steam/return',
+        realm: 'https://plate-passport.onrender.com/',
+        apiKey: '32D13DB7097AC527DD13016239FAC2CD'
+    },
+    function(identifier, profile, done) {
+        process.nextTick(function () {
+            profile.identifier = identifier;
+            return done(null, profile);
+        });
+    }
+));
 
 
 

@@ -29,6 +29,19 @@ router.get('/auth/github',
     passport.authenticate('github', { scope: ['user:email'] }));
 
 
+/*Steam Auth*/
+app.get('/auth/steam',
+    passport.authenticate('steam', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+    });
+
+app.get('/auth/steam/return',
+    passport.authenticate('steam', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
 
 
 router.get('/login',function(req,res,next){
