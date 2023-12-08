@@ -29,19 +29,18 @@ router.get('/auth/github',
     passport.authenticate('github', { scope: ['user:email'] }));
 
 
-/*Steam Auth*/
-router.get('/auth/steam',
-    passport.authenticate('steam', { failureRedirect: '/login' }),
+/*Discord Auth*/
+
+router.get('/auth/discord',
+    passport.authenticate('discord'));
+
+router.get('/auth/discord/callback',
+    passport.authenticate('discord', { failureRedirect: '/login' }),
     function(req, res) {
-      res.redirect('/');
+        // Successful authentication, redirect home.
+        res.redirect('/');
     });
 
-router.get('/auth/steam/return',
-    passport.authenticate('steam', { failureRedirect: '/login' }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    });
 
 
 router.get('/login',function(req,res,next){

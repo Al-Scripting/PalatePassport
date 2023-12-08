@@ -117,18 +117,33 @@ passport.use(new GitHubStrategy({
     }
 ));
 
-const SteamStrategy = require('passport-steam').Strategy;
 
-passport.use(new SteamStrategy({
-        returnURL: 'https://plate-passport.onrender.com/auth/steam/return',
-        realm: 'https://plate-passport.onrender.com/',
-        apiKey: '32D13DB7097AC527DD13016239FAC2CD'
+/*Discord Auth*/
+const DiscordStrategy = require('passport-discord').Strategy;
+
+passport.use(new DiscordStrategy({
+        clientID: '1182472250952261682',
+        clientSecret: 'Q6c735J4l-FkuOLYyRMmOgmqJK5On6_C',
+        callbackURL: 'https://plate-passport.onrender.com/auth/discord/callback',
+        scope: ['identify', 'email'] // Adjust scope according to your needs
     },
-    function(identifier, profile, done) {
-        process.nextTick(function () {
-            profile.identifier = identifier;
-            return done(null, profile);
-        });
+    async function(accessToken, refreshToken, profile, done) {
+        try {
+            let user = await User.findOne({ discordId: profile.id });
+            if (!user) {
+                // User not found, create a new user
+                user = new User({
+                    discordId: profile.id,
+                    username: profile.username, // Discord username
+                    displayName: profile.displayName, // Discord display name
+                    email: profile.emails?.[0]?.value || 'No email provided' // Email, if available
+                });
+                await user.save();
+            }
+            done(null, user);
+        } catch (err) {
+            done(err);
+        }
     }
 ));
 
