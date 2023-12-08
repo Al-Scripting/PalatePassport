@@ -135,7 +135,7 @@ passport.use(new DiscordStrategy({
                 user = new User({
                     discordId: profile.id,
                     username: profile.username, // Discord username
-                    displayName: profile.displayName, // Discord display name
+                    displayName: profile.username, // Discord display name
                     email: profile.emails?.[0]?.value || 'No email provided' // Email, if available
                 });
                 await user.save();
